@@ -1,1 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Piepenburg Mediterráneo S.L.</title>
+  <meta name="description" content="Sanierung, Maler/Fliesen, Bautrocknung & Immobilien – Castellón & Valencia" />
 
+  <style>
+    :root{
+      --brand-bg:#7a1e1e; /* fallback-farbe */
+      --brand-accent:#7a1e1e;
+      --card-bg:#ffffff;
+      --shadow:0 10px 30px rgba(0,0,0,.15);
+      --radius:14px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color:#222;
+      line-height:1.55;
+      background: var(--brand-bg) no-repeat center/cover fixed;
+      /* Das Foto: gleiche Ordner-Ebene wie index.html, Dateiname: bg.jpg */
+      background-image: url("bg.jpg");
+    }
+
+    /* Eine halbtransparente Schicht für bessere Lesbarkeit auf Foto */
+    .overlay{
+      position:fixed; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.45), rgba(0,0,0,.35));
+      z-index:0;
+    }
+
+    header{
+      position:relative;
+      z-index:1;
+      padding:28px 18px 10px;
+      display:flex; justify-content:center;
+    }
+    .brand{
+      display:flex; flex-direction:column; align-items:center; gap:10px;
+      max-width:min(92vw, 1100px);
+      width:100%;
+    }
+    .brand img.logo{
+      display:block;
+      height:74px; /* Logo-Größe anpassen */
+      width:auto;
+      filter: drop-shadow(0 6px 12px rgba(0,0,0,.25));
+    }
+    .claim{
+      color:#fff;
+      text-align:center;
+      font-size:clamp(16px, 2.3vw, 20px);
+      letter-spacing:.3px;
+      text-shadow:0 2px 8px rgba(0,0,0,.5);
+    }
+
+    main{
+      position:relative; z-index:1;
+      display:flex; justify-content:center; padding:18px;
+    }
+    .card{
+      width:min(960px, 100%);
+      background:rgba(255,255,255,.96);
+      backdrop-filter:saturate(120%) blur(2px);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px 22px;
+    }
+
+    h1{
+      margin:0 0 8px 0;
+      font-size:clamp(26px, 4vw, 34px);
+      color:var(--brand-accent);
+      letter-spacing:.2px;
+    }
+    .lead{
+      font-size:clamp(16px, 2.6vw, 18px);
+      margin:2px 0 14px 0;
+      color:#333;
+    }
+
+    .btn-row{
+      display:flex; flex-wrap:wrap; gap:12px; margin:14px 0 6px;
+    }
+    .btn{
+      display:inline-block;
+      padding:12px 16px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:600;
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow:0 6px 14px rgba(0,0,0,.08);
+      transition:.18s transform ease, .18s box-shadow ease, .18s opacity ease;
+      background:#fff;
+      color:#111;
+    }
+    .btn.primary{
+      background:var(--brand-accent);
+      color:#fff;
+      border-color:transparent;
+    }
+    .btn:hover{ transform:translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.12); }
+    .btn:active{ transform:translateY(0); box-shadow:0 6px 14px rgba(0,0,0,.08); }
+
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:16px;
+      margin-top:10px;
+    }
+    @media (min-width:740px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+    .box{
+      background:#fff;
+      border:1px solid rgba(0,0,0,.06);
+      border-radius:12px;
+      padding:16px;
+    }
+    .box h3{ margin:0 0 8px; color:#222; font-size:20px }
+
+    footer{
+      position:relative; z-index:1;
+      display:flex; justify-content:center; padding:14px 18px 26px;
+    }
+    .foot{
+      width:min(960px, 100%);
+      display:flex; flex-wrap:wrap; gap:10px;
+      justify-content:center;
+      color:#fff;
+      text-shadow:0 2px 8px rgba(0,0,0,.4);
+    }
+    .foot a{
+      color:#fff; text-decoration:none; font-weight:600; padding:6px 10px;
+      background:rgba(0,0,0,.22); border-radius:999px;
+      border:1px solid rgba(255,255,255,.25)
+    }
+    .foot a:hover{ background:rgba(0,0,0,.32) }
+
+    /* Kleines Fallback, falls bg.jpg fehlt */
+    @supports not (background: url("bg.jpg")){
+      body{ background: var(--brand-bg) }
+      .overlay{ background: linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.25)) }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Foto-Overlay (macht Text auf dem Foto gut lesbar) -->
+  <div class="overlay" aria-hidden="true"></div>
+
+  <!-- Kopf mit Logo & Claim -->
+  <header>
+    <div class="brand" role="banner">
+      <img src="logo.png" class="logo" alt="Piepenburg Mediterráneo S.L. – Logo" />
+      <div class="claim">Calidad alemana · Soluciones mediterráneas</div>
+    </div>
+  </header>
+
+  <!-- Hauptinhalt -->
+  <main role="main">
+    <section class="card" aria-label="Einleitung & Aktionen">
+      <h1>Willkommen!</h1>
+      <p class="lead">
+        Sanierung · Maler / Fliesen · Bautrocknung · Immobilien (Castellón &amp; Valencia)
+      </p>
+
+      <div class="btn-row">
+        <a class="btn primary" href="Expose_complete.pdf" target="_blank" rel="noopener">Exposé öffnen (PDF)</a>
+        <a class="btn" href="mailto:mail@piepenburg.info">E-Mail schreiben</a>
+        <a class="btn" href="https://wa.me/491727117770" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+
+      <div class="grid">
+        <div class="box">
+          <h3>Leistungen</h3>
+          <ul style="margin:0; padding-left:18px">
+            <li>Wasserschadensanierung &amp; Bautrocknung</li>
+            <li>Maler- und Fliesenarbeiten</li>
+            <li>Trockenbau &amp; Renovierung</li>
+            <li>Immobilienaufnahme &amp; Vermarktung</li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Region</h3>
+          <p style="margin:.3rem 0 0">
+            Wir sind in der Provinz Castellón sowie im Großraum Valencia tätig
+            und verbinden deutsche Qualitätsstandards mit mediterraner Praxis.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer mit Rechtstext-Links -->
+  <footer>
+    <nav class="foot" aria-label="Rechtliches">
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutzerklärung</a>
+    </nav>
+  </footer>
+</body>
+</html>
